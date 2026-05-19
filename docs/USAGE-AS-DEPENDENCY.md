@@ -22,7 +22,7 @@ Add to `package.json`:
 ```json
 {
   "dependencies": {
-    "onofficejs": "github:onofficejs/onofficejs"
+    "onofficejs": "github:Felixfalk26/onofficejs"
   }
 }
 ```

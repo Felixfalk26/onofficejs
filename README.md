@@ -1,6 +1,6 @@
 # onofficejs
 
-[![CI](https://github.com/onofficejs/onofficejs/actions/workflows/ci.yml/badge.svg)](https://github.com/onofficejs/onofficejs/actions/workflows/ci.yml)
+[![CI](https://github.com/Felixfalk26/onofficejs/actions/workflows/ci.yml/badge.svg)](https://github.com/Felixfalk26/onofficejs/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/onofficejs.svg)](https://www.npmjs.com/package/onofficejs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -47,7 +47,7 @@ npm install onofficejs
 **From GitHub:**
 
 ```bash
-npm install github:onofficejs/onofficejs
+npm install github:Felixfalk26/onofficejs
 ```
 
 **Local development:**

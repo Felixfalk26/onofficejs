@@ -10,13 +10,13 @@
     "sdk",
     "typescript"
   ],
-  "homepage": "https://github.com/onofficejs/onofficejs#readme",
+  "homepage": "https://github.com/Felixfalk26/onofficejs#readme",
   "bugs": {
-    "url": "https://github.com/onofficejs/onofficejs/issues"
+    "url": "https://github.com/Felixfalk26/onofficejs/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onofficejs/onofficejs.git"
+    "url": "git+https://github.com/Felixfalk26/onofficejs.git"
   },
   "license": "MIT",
   "author": "onofficejs contributors",
