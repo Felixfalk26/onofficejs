@@ -1,5 +1,10 @@
+/**
+ * Unofficial onOffice API client — not affiliated with onOffice GmbH.
+ * @see https://github.com/Felixfalk26/onofficejs/blob/main/DISCLAIMER.md
+ */
 import type { CacheAdapter } from '../cache/CacheAdapter.js';
-import { MemoryCacheAdapter } from '../cache/CacheAdapter.js';import { OnOfficeConfigurationError } from '../errors/index.js';
+import { MemoryCacheAdapter } from '../cache/CacheAdapter.js';
+import { OnOfficeConfigurationError } from '../errors/index.js';
 import { ApiCall } from '../internal/ApiCall.js';
 import { createResources, type ResourceBundle } from '../resources/index.js';
 import type {

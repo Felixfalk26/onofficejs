@@ -1,0 +1,39 @@
+onofficejs — Third-Party Notice
+================================
+
+This project is an UNOFFICIAL community client for the onOffice API.
+It is NOT affiliated with onOffice GmbH.
+
+Independent implementation
+--------------------------
+Copyright (c) 2026 onofficejs contributors
+
+All TypeScript/JavaScript source code in this repository was written
+independently. No source code was copied from onOffice GmbH's official
+PHP SDK.
+
+Behavioral reference (MIT)
+--------------------------
+The wire protocol (JSON structure, HMAC v2 signing, action URNs) follows
+the publicly documented onOffice API:
+
+  https://apidoc.onoffice.de/
+
+The official PHP SDK was used only as a behavioral reference for test
+vector compatibility. The PHP SDK is licensed under the MIT License:
+
+  Repository: https://github.com/onOfficeGmbH/sdk
+  Copyright (c) 2019 onOffice Software AG
+  License: MIT
+
+onOffice trademarks
+-------------------
+"onOffice", "onOffice enterprise", and related marks are trademarks of
+onOffice GmbH (https://www.onoffice.com/). This project is not endorsed
+by onOffice GmbH.
+
+API data and services
+---------------------
+Access to the onOffice API requires a valid onOffice enterprise license
+with the paid API module. API responses may contain personal and business
+data subject to your data-processing obligations.

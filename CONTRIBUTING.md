@@ -1,6 +1,8 @@
 # Contributing
 
-Thanks for helping improve onofficejs!
+Thanks for helping improve **onofficejs** — an **unofficial** community wrapper for the onOffice API.
+
+Please read [DISCLAIMER.md](./DISCLAIMER.md) before contributing. Do not imply official onOffice affiliation in docs, code comments, or marketing.
 
 ## Development setup
 

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2026-05-19
+
+### Added
+
+- Unofficial / disclaimer documentation (`DISCLAIMER.md`, `NOTICE`, `docs/LEGAL.md`)
+- Prominent trademark and affiliation notices in README and LICENSE
+
+### Changed
+
+- Package description and README now clearly state community/unofficial status
+- Removed language implying official onOffice endorsement
+
 ## [1.0.0] - 2026-05-19
 
 ### Added

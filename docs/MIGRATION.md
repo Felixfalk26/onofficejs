@@ -1,6 +1,8 @@
 # Migration from PHP SDK
 
-Side-by-side guide for moving from [`onoffice/sdk`](https://github.com/onOfficeGmbH/sdk) to `onofficejs`.
+> **Note:** `onofficejs` is an **unofficial** community client. The **official** SDK is [`onoffice/sdk`](https://github.com/onOfficeGmbH/sdk) (PHP, maintained by onOffice GmbH). See [DISCLAIMER.md](../DISCLAIMER.md).
+
+Side-by-side guide for moving from the official PHP SDK to this unofficial JavaScript/TypeScript wrapper.
 
 ## Install
 

@@ -1,12 +1,17 @@
 # onofficejs
 
+> **Unofficial community client — not affiliated with onOffice GmbH.**  
+> This is **not** the official onOffice SDK. For the official PHP client see [onOfficeGmbH/sdk](https://github.com/onOfficeGmbH/sdk).  
+> See [DISCLAIMER.md](./DISCLAIMER.md) for legal and trademark information.
+
 [![CI](https://github.com/Felixfalk26/onofficejs/actions/workflows/ci.yml/badge.svg)](https://github.com/Felixfalk26/onofficejs/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/onofficejs.svg)](https://www.npmjs.com/package/onofficejs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Unofficial](https://img.shields.io/badge/onOffice-unofficial-orange)](DISCLAIMER.md)
 
-**Production-ready TypeScript/JavaScript client for the [onOffice API](https://apidoc.onoffice.de/).**
+**Unofficial TypeScript/JavaScript wrapper for the [onOffice API](https://apidoc.onoffice.de/).**
 
-Built as a modern rewrite of the official PHP SDK — async-first, fully typed, batch-capable, and designed for Node.js 18+, Bun, Deno, and edge runtimes.
+Community-maintained, async-first, fully typed, and designed for Node.js 18+, Bun, Deno, and edge runtimes. Implements the public JSON API protocol documented by onOffice — including HMAC v2 signing and batch requests.
 
 ---
 
@@ -15,7 +20,7 @@ Built as a modern rewrite of the official PHP SDK — async-first, fully typed, 
 - **Async/await** — no manual `sendRequests()` unless you want batch control
 - **TypeScript-first** — strict types, declaration maps, IDE autocomplete
 - **Batch requests** — multiple API actions in one HTTP round-trip
-- **HMAC v2 signing** — verified against official PHP SDK test vectors
+- **HMAC v2 signing** — compatible with [documented onOffice API auth](https://apidoc.onoffice.de/onoffice-api-request/request-elemente/action/#hmac)
 - **Pluggable cache** — built-in LRU memory cache with TTL
 - **Resource helpers** — `client.estates.read()`, `client.addresses.read()`, etc.
 - **Query builders** — fluent filter/sort/pagination helpers
@@ -30,36 +35,27 @@ Built as a modern rewrite of the official PHP SDK — async-first, fully typed, 
 
 ```bash
 npm install onofficejs
+# or from GitHub:
+npm install github:Felixfalk26/onofficejs
 ```
 
 ### Use in another project
 
-**From npm (after publish):**
-
 ```json
 {
   "dependencies": {
-    "onofficejs": "^1.0.0"
+    "onofficejs": "github:Felixfalk26/onofficejs"
   }
 }
 ```
 
-**From GitHub:**
-
-```bash
-npm install github:Felixfalk26/onofficejs
-```
-
-**Local development:**
-
-```bash
-cd path/to/onofficejs && npm install && npm run build && npm link
-cd path/to/your-project && npm link onofficejs
-```
+See [docs/USAGE-AS-DEPENDENCY.md](./docs/USAGE-AS-DEPENDENCY.md).
 
 ---
 
 ## Quick start
+
+Requires a valid **onOffice enterprise API user** (paid module) — see [onOffice API docs](https://apidoc.onoffice.de/erste-schritte/).
 
 ```typescript
 import { OnOfficeClient, filter, sort, paginate } from 'onofficejs';
@@ -86,6 +82,8 @@ console.log(data.records);
 
 | Guide | Description |
 |---|---|
+| [DISCLAIMER.md](./DISCLAIMER.md) | **Unofficial status, legal & trademark notice** |
+| [docs/LEGAL.md](./docs/LEGAL.md) | Detailed legal FAQ |
 | [API Reference](./docs/API.md) | Full client API |
 | [Caching](./docs/CACHING.md) | Cache adapters & TTL |
 | [Migration from PHP SDK](./docs/MIGRATION.md) | Side-by-side PHP → JS |
@@ -115,7 +113,7 @@ const [estates, addresses] = await client.batch((b) => [
 ]);
 ```
 
-### PHP SDK parity
+### PHP SDK parity layer
 
 ```typescript
 import { ActionId, Module, onOfficeSDK } from 'onofficejs';
@@ -147,10 +145,23 @@ try {
 ## Requirements
 
 - Node.js 18+
-- onOffice API credentials — [apidoc.onoffice.de](https://apidoc.onoffice.de/)
+- Valid onOffice enterprise API credentials — [apidoc.onoffice.de](https://apidoc.onoffice.de/)
+
+---
+
+## Official vs unofficial
+
+| | Official PHP SDK | **onofficejs (this repo)** |
+|---|---|---|
+| Maintainer | onOffice GmbH | Community |
+| Language | PHP | TypeScript / JavaScript |
+| Support | apisupport@onoffice.de | GitHub Issues only |
+| Status | Official | **Unofficial wrapper** |
 
 ---
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT — see [LICENSE](./LICENSE). Applies to **this library’s source code only**.
+
+Trademarks and API services belong to onOffice GmbH — see [DISCLAIMER.md](./DISCLAIMER.md) and [NOTICE](./NOTICE).
