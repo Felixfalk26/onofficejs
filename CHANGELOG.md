@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2026-05-20
+
+### Added
+
+- `client.estates.modifyFields(id, fields)` convenience helper for estate field updates.
+- README and API docs guidance for estate writes and compound field values returned by onOffice.
+
+### Fixed
+
+- Resource `modify`/`delete` helpers now send the record id as the action `resourceid` instead of placing `resourceid` inside `parameters`.
+
 ## [1.0.1] - 2026-05-19
 
 ### Added

@@ -21,14 +21,15 @@ export class EstateResource {
   }
 
   modify(id: string, params: Record<string, unknown>): Promise<ApiActionResult> {
-    return this.client.callGenericAsync(ActionId.Modify, Module.Estate, {
-      ...params,
-      resourceid: id,
-    });
+    return this.client.callAsync(ActionId.Modify, id, null, Module.Estate, params);
+  }
+
+  modifyFields(id: string, fields: Record<string, unknown>): Promise<ApiActionResult> {
+    return this.modify(id, { data: fields });
   }
 
   delete(id: string): Promise<ApiActionResult> {
-    return this.client.callGenericAsync(ActionId.Delete, Module.Estate, { resourceid: id });
+    return this.client.callAsync(ActionId.Delete, id, null, Module.Estate);
   }
 
   search(input: string, extra: Omit<SearchParams, 'input'> = {}): Promise<ApiActionResult> {
@@ -51,14 +52,11 @@ export class AddressResource {
   }
 
   modify(id: string, params: Record<string, unknown>): Promise<ApiActionResult> {
-    return this.client.callGenericAsync(ActionId.Modify, Module.Address, {
-      ...params,
-      resourceid: id,
-    });
+    return this.client.callAsync(ActionId.Modify, id, null, Module.Address, params);
   }
 
   delete(id: string): Promise<ApiActionResult> {
-    return this.client.callGenericAsync(ActionId.Delete, Module.Address, { resourceid: id });
+    return this.client.callAsync(ActionId.Delete, id, null, Module.Address);
   }
 }
 
@@ -90,10 +88,7 @@ export class SearchCriteriaResource {
   }
 
   modify(id: string, params: Record<string, unknown>): Promise<ApiActionResult> {
-    return this.client.callGenericAsync(ActionId.Modify, Module.SearchCriteria, {
-      ...params,
-      resourceid: id,
-    });
+    return this.client.callAsync(ActionId.Modify, id, null, Module.SearchCriteria, params);
   }
 }
 

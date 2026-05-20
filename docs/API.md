@@ -74,7 +74,7 @@ const [a, b] = await client.batch((b) => [
 
 | Property | Methods |
 |---|---|
-| `client.estates` | `read`, `create`, `modify`, `delete`, `search` |
+| `client.estates` | `read`, `create`, `modify`, `modifyFields`, `delete`, `search` |
 | `client.addresses` | `read`, `create`, `modify`, `delete` |
 | `client.calendar` | `read` |
 | `client.marketplace` | `unlockProvider` |
@@ -94,6 +94,31 @@ const [a, b] = await client.batch((b) => [
 | `setCaches(adapters[])` | Replace all caches |
 | `clearCaches()` | Remove cache adapters |
 | `getErrors()` | Map of handle → API error results |
+
+---
+
+## Estate updates
+
+Use `modifyFields(id, fields)` for the common estate-field update case:
+
+```typescript
+await client.estates.modifyFields('568', {
+  kaufpreis: 200000,
+  objekttitel: 'Wohnung in Berlin',
+});
+```
+
+This sends the estate id as the top-level action `resourceid` and the field values under `parameters.data`.
+
+Use `modify(id, params)` when you need full control over the raw onOffice modify parameters:
+
+```typescript
+await client.estates.modify('568', {
+  data: { kaufpreis: 200000 },
+});
+```
+
+onOffice read responses may include nested object values in `record.elements` for compound fields. Keep field payloads typed as `unknown` until validated by your application.
 
 ---
 

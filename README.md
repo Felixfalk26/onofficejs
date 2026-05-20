@@ -99,8 +99,30 @@ console.log(data.records);
 ```typescript
 await client.estates.read({ data: ['Id'], listlimit: 10 });
 await client.estates.search('Berlin');
+await client.estates.modifyFields('568', { kaufpreis: 200000 });
 await client.addresses.read({ data: ['Id', 'Vorname', 'Name'] });
 ```
+
+### Updating estate fields
+
+`modifyFields()` sends a `Modify` action with the estate id as the action `resourceid` and the changed fields under `parameters.data`, matching the onOffice API shape for estate updates.
+
+```typescript
+await client.estates.modifyFields('568', {
+  kaufpreis: 200000, // send numeric estate fields as numbers
+  objekttitel: 'Wohnung in Berlin',
+});
+```
+
+You can also pass the raw API parameter object:
+
+```typescript
+await client.estates.modify('568', {
+  data: { kaufpreis: 200000 },
+});
+```
+
+Some read fields can be nested objects, for example parking-lot aggregates such as `multiParkingLot`. Treat `record.elements` as `Record<string, unknown>` and validate or narrow values in your application before displaying or writing them back.
 
 ### Batch mode
 

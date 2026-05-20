@@ -1,6 +1,6 @@
 {
   "name": "onofficejs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Unofficial TypeScript/JavaScript client for the onOffice API — community-maintained, not affiliated with onOffice GmbH",
   "keywords": [
     "onoffice",

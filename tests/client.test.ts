@@ -60,6 +60,39 @@ describe('OnOfficeClient', () => {
     expect(result.resourcetype).toBe(Module.Search);
   });
 
+  it('sends estate field updates with resourceid outside parameters', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      text: async () =>
+        JSON.stringify({
+          response: {
+            results: [
+              {
+                status: { errorcode: 0 },
+                actionid: ActionId.Modify,
+                resourcetype: Module.Estate,
+                data: { records: [] },
+              },
+            ],
+          },
+        }),
+    });
+
+    const client = new OnOfficeClient({ token: 't', secret: 's', fetch: fetchMock });
+
+    await client.estates.modifyFields('568', { kaufpreis: 200000 });
+
+    const body = JSON.parse((fetchMock.mock.calls[0]?.[1] as RequestInit).body as string) as {
+      request: { actions: Array<{ resourceid: string; resourcetype: string; parameters: Record<string, unknown> }> };
+    };
+    expect(body.request.actions[0]).toMatchObject({
+      resourceid: '568',
+      resourcetype: Module.Estate,
+      parameters: { data: { kaufpreis: 200000 } },
+    });
+    expect(body.request.actions[0]?.parameters).not.toHaveProperty('resourceid');
+  });
+
   it('batch sends multiple actions in one request', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
