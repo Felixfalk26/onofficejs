@@ -70,6 +70,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run typecheck && npm run lint && npm run test && npm run build",
     "example:estate-read": "tsx examples/01-estate-read.ts",
     "example:estate-search": "tsx examples/02-estate-search.ts",
